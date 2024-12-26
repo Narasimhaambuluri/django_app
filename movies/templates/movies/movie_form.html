@@ -1,0 +1,21 @@
+{% extends 'movies/base.html' %} {% load movie_extras %} {% block content %}
+<div class="card">
+  <div class="card-body">
+    <h2>
+      {% if form.instance.pk %}Edit Movie{% else %}Add New Movie{% endif %}
+    </h2>
+    <form method="post">
+      {% csrf_token %} {% for field in form %}
+      <div class="mb-3">
+        <label for="{{ field.id_for_label }}" class="form-label"
+          >{{ field.label }}</label
+        >
+        {{ field.errors }} {{ field|addclass:"form-control" }}
+      </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-primary">Save</button>
+      <a href="{% url 'movie-list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

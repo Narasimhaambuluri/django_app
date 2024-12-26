@@ -1,0 +1,36 @@
+{% extends 'movies/base.html' %} {% block content %}
+<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">{{ movie.series_title }}</h1>
+    <div class="row">
+      <div class="col-md-8">
+        <p><strong>Released Year:</strong> {{ movie.released_year }}</p>
+        <p><strong>Certificate:</strong> {{ movie.certificate }}</p>
+        <p><strong>Runtime:</strong> {{ movie.runtime }}</p>
+        <p><strong>Genre:</strong> {{ movie.genre }}</p>
+        <p><strong>IMDB Rating:</strong> {{ movie.imdb_rating }}</p>
+        <p><strong>Meta Score:</strong> {{ movie.meta_score }}</p>
+        <p><strong>Director:</strong> {{ movie.director }}</p>
+        <p>
+          <strong>Stars:</strong> {{ movie.star1 }}, {{ movie.star2 }}, {{
+          movie.star3 }}, {{ movie.star4 }}
+        </p>
+        <p><strong>Votes:</strong> {{ movie.no_of_votes }}</p>
+        <p><strong>Gross:</strong> {{ movie.gross }}</p>
+        <p><strong>Overview:</strong> {{ movie.overview }}</p>
+      </div>
+    </div>
+    <div class="mt-3">
+      <a href="{% url 'movie-update' movie.pk %}" class="btn btn-warning"
+        >Edit</a
+      >
+      <a href="{% url 'movie-delete' movie.pk %}" class="btn btn-danger"
+        >Delete</a
+      >
+      <a href="{% url 'movie-list' %}" class="btn btn-secondary"
+        >Back to List</a
+      >
+    </div>
+  </div>
+</div>
+{% endblock %}

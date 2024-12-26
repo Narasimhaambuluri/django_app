@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movie Database</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'movie-list' %}">Movie Database</a>
+        <div class="navbar-nav">
+          <a class="nav-link" href="{% url 'movie-create' %}">Add New Movie</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-4">{% block content %} {% endblock %}</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
